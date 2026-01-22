@@ -4,3 +4,4 @@ numpy
 pymongo
 certifi
 pymongo[srv]>=4.0
+scikit-learn
