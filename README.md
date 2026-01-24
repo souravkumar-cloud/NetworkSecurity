@@ -22,36 +22,37 @@ The pipeline is fully automated and follows best practices used in **industry-gr
 
 ## 🧱 Project Architecture
 
+```
 NetworkSecurity/
 │
 ├── networksecurity/
-│ ├── components/
-│ │ ├── data_ingestion.py
-│ │ ├── data_validation.py
-│ │ ├── data_transformation.py
-│ │ └── model_trainer.py
-│ │
-│ ├── entity/
-│ │ ├── config_entity.py
-│ │ └── artifact_entity.py
-│ │
-│ ├── constant/
-│ │ └── training_pipeline.py
-│ │
-│ ├── utils/
-│ │ └── main_utils/
-│ │ └── utils.py
-│ │
-│ └── exception/
-│ └── exception.py
+│   ├── components/
+│   │   ├── data_ingestion.py
+│   │   ├── data_validation.py
+│   │   ├── data_transformation.py
+│   │   └── model_trainer.py
+│   │
+│   ├── entity/
+│   │   ├── config_entity.py
+│   │   └── artifact_entity.py
+│   │
+│   ├── constant/
+│   │   └── training_pipeline.py
+│   │
+│   ├── utils/
+│   │   └── main_utils/
+│   │       └── utils.py
+│   │
+│   └── exception/
+│       └── exception.py
 │
 ├── Artifacts/
-│ └── <timestamped pipeline outputs>
+│   └── <timestamped pipeline outputs>
 │
 ├── main.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
@@ -132,28 +133,65 @@ This ensures full experiment traceability.
 ```bash
 git clone https://github.com/souravkumar-cloud/NetworkSecurity.git
 cd NetworkSecurity
+```
 
-## ▶️ How to Run the Project
-
-### 1️⃣ Create Virtual Environment
+### 2️⃣ Create Virtual Environment
 ```bash
 python -m venv venv
+```
 
-2️⃣ Activate Virtual Environment (Windows)
+### 3️⃣ Activate Virtual Environment
+
+**Windows:**
+```bash
 venv\Scripts\activate
+```
 
-3️⃣ Install Dependencies
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+### 4️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-4️⃣ Run the Pipeline
+### 5️⃣ Run the Pipeline
+```bash
 python main.py
-
-
+```
 
 ---
 
-### ✅ Optional (but strongly recommended)
+## 📝 Optional (but strongly recommended)
+
 Add this to your `.gitignore` file:
 
 ```gitignore
 venv/
+Artifacts/
+*.pyc
+__pycache__/
+.DS_Store
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+
+## 👤 Author
+
+**Sourav Kumar**  
+GitHub: [@souravkumar-cloud](https://github.com/souravkumar-cloud)
+
+---
+
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you!
