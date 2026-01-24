@@ -6,6 +6,12 @@ import numpy as np
 import dill
 import pickle
 
+from sklearn.metrics import r2_score,precision_score,recall_score
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import accuracy_score
+
+
+
 
 def read_yaml_file(file_path:str)->dict:
     try:
@@ -48,4 +54,51 @@ def save_object(file_path: str, obj: object) -> None:
         logging.info("Exited the save_object method of MainUtils class")
     except Exception as e:
         raise NetworkSecurityException(e, sys) from e
+    
+def load_object(file_path:str,)->object:
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"The file: {file_path} is not exist")
+        with open(file_path,'rb') as file_obj:
+            print(file_path)
+            return pickle.load(file_obj)
+    except Exception as e:
+        raise NetworkSecurityException(e,sys) from e
 
+
+def load_numpy_array_data(file_path:str)->np.array:
+    try:
+        with open(file_path,"rb") as file_obj:
+            return np.load(file_obj)
+    except Exception as e:
+        raise NetworkSecurityException(e,sys) from e
+    
+def evaluate_models(X_train, y_train, X_test, y_test, models, params):
+    try:
+        report = {}
+
+        for model_name, model in models.items():
+
+            param = params.get(model_name, {})
+
+            gs = GridSearchCV(
+                estimator=model,
+                param_grid=param,
+                cv=3,
+                n_jobs=-1
+            )
+
+            gs.fit(X_train, y_train)
+
+            model.set_params(**gs.best_params_)
+            model.fit(X_train, y_train)
+
+            y_test_pred = model.predict(X_test)
+            score = accuracy_score(y_test, y_test_pred)
+
+            report[model_name] = score
+
+        return report
+
+    except Exception as e:
+        raise NetworkSecurityException(e,sys)
