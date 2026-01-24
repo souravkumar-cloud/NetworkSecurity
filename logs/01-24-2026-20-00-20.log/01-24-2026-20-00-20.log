@@ -1,0 +1,6 @@
+[2026-01-24 20:00:28,386] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-01-24 20:00:28,394] 107 dagshub - INFO - Accessing as souravkumar-cloud
+[2026-01-24 20:00:29,511] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/souravkumar-cloud/NetworkSecurity "HTTP/1.1 200 OK"
+[2026-01-24 20:00:30,034] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2026-01-24 20:00:30,036] 107 dagshub - INFO - Initialized MLflow to track repo "souravkumar-cloud/NetworkSecurity"
+[2026-01-24 20:00:30,037] 107 dagshub - INFO - Repository souravkumar-cloud/NetworkSecurity initialized!
